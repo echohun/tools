@@ -1,0 +1,123 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+</head>
+<body>
+<script>
+function Base64() {
+    // private property  
+    _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";  
+   
+    // public method for encoding  
+    this.encode = function (input) {  
+        var output = "";  
+        var chr1, chr2, chr3, enc1, enc2, enc3, enc4;  
+        var i = 0;  
+        input = _utf8_encode(input);  
+        while (i < input.length) {  
+            chr1 = input.charCodeAt(i++);  
+            chr2 = input.charCodeAt(i++);  
+            chr3 = input.charCodeAt(i++);  
+            enc1 = chr1 >> 2;  
+            enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);  
+            enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);  
+            enc4 = chr3 & 63;  
+            if (isNaN(chr2)) {  
+                enc3 = enc4 = 64;  
+            } else if (isNaN(chr3)) {  
+                enc4 = 64;  
+            }  
+            output = output +  
+            _keyStr.charAt(enc1) + _keyStr.charAt(enc2) +  
+            _keyStr.charAt(enc3) + _keyStr.charAt(enc4);  
+        }  
+        return output;  
+    }  
+   
+    // public method for decoding  
+    this.decode = function (input) {  
+        var output = "";  
+        var chr1, chr2, chr3;  
+        var enc1, enc2, enc3, enc4;  
+        var i = 0;  
+        input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");  
+        while (i < input.length) {  
+            enc1 = _keyStr.indexOf(input.charAt(i++));  
+            enc2 = _keyStr.indexOf(input.charAt(i++));  
+            enc3 = _keyStr.indexOf(input.charAt(i++));  
+            enc4 = _keyStr.indexOf(input.charAt(i++));  
+            chr1 = (enc1 << 2) | (enc2 >> 4);  
+            chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);  
+            chr3 = ((enc3 & 3) << 6) | enc4;  
+            output = output + String.fromCharCode(chr1);  
+            if (enc3 != 64) {  
+                output = output + String.fromCharCode(chr2);  
+            }  
+            if (enc4 != 64) {  
+                output = output + String.fromCharCode(chr3);  
+            }  
+        }  
+        output = _utf8_decode(output);  
+        return output;  
+    }  
+   
+    // private method for UTF-8 encoding  
+    _utf8_encode = function (string) {  
+        string = string.replace(/\r\n/g,"\n");  
+        var utftext = "";  
+        for (var n = 0; n < string.length; n++) {  
+            var c = string.charCodeAt(n);  
+            if (c < 128) {  
+                utftext += String.fromCharCode(c);  
+            } else if((c > 127) && (c < 2048)) {  
+                utftext += String.fromCharCode((c >> 6) | 192);  
+                utftext += String.fromCharCode((c & 63) | 128);  
+            } else {  
+                utftext += String.fromCharCode((c >> 12) | 224);  
+                utftext += String.fromCharCode(((c >> 6) & 63) | 128);  
+                utftext += String.fromCharCode((c & 63) | 128);  
+            }  
+   
+        }  
+        return utftext;  
+    }  
+   
+    // private method for UTF-8 decoding  
+    _utf8_decode = function (utftext) {  
+        var string = "";  
+        var i = 0;  
+        var c = c1 = c2 = 0;  
+        while ( i < utftext.length ) {  
+            c = utftext.charCodeAt(i);  
+            if (c < 128) {  
+                string += String.fromCharCode(c);  
+                i++;  
+            } else if((c > 191) && (c < 224)) {  
+                c2 = utftext.charCodeAt(i+1);  
+                string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));  
+                i += 2;  
+            } else {  
+                c2 = utftext.charCodeAt(i+1);  
+                c3 = utftext.charCodeAt(i+2);  
+                string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));  
+                i += 3;  
+            }  
+        }  
+        return string;  
+    }  
+}
+document.write('<html><head><title>加载中</title></head></html>')
+var base64 = new Base64();
+var bb_str = "SlRORGFIUnRiQ1V6UlNVd1FTVXpRMmhsWVdRbE0wVWxNRUVsTTBOdFpYUmhKVEl3YUhSMGNDMWxjWFZwZGowbE1qSkRiMjUwWlc1MExWUjVjR1VsTWpJbE1qQmpiMjUwWlc1MFBTVXlNblJsZUhRdmFIUnRiRHNsTWpCamFHRnljMlYwUFhWMFppMDRKVEl5SlRJd0x5VXpSU1V5TUNVd1FTVXpRM1JwZEd4bEpUTkZKVVUzSlRrNUpVSkZKVVUxSlVKQkpVRTJKVVUwSlVJNEpUZ3dKVVUwSlVJNEpUaENKVVZHSlVKREpUaERKVVUwSlVKRUpVRXdKVVUxSlVJd0pVSXhKVVUzSlRsR0pVRTFKVVU1SlRneEpUa3pKVE5ETDNScGRHeGxKVE5GSlRCQkpUTkRiR2x1YXlVeU1ISmxiRDBsTWpKcFkyOXVKVEl5SlRJd2FISmxaajBsTWpKb2RIUndjem92TDNkM2R5NWlZV2xrZFM1amIyMHZabUYyYVdOdmJpNXBZMjhsTWpJbE1qQjBlWEJsUFNVeU1tbHRZV2RsTDNndGFXTnZiaVV5TWlVeU1DOGxNMFVsTUVFbE0wTnNhVzVySlRJd2NtVnNQU1V5TW5Ob2IzSjBZM1YwSlRJd2FXTnZiaVV5TWlVeU1HaHlaV1k5SlRJeWFIUjBjSE02THk5M2QzY3VZbUZwWkhVdVkyOXRMMlpoZG1samIyNHVhV052SlRJeUpUSXdkSGx3WlQwbE1qSnBiV0ZuWlM5NExXbGpiMjRsTWpJbE1qQXZKVE5GSlRCQkpUTkRjM1I1YkdVbE0wVmliMlI1SlRkQ0pUQkJKVEl3SlRJd0pUSXdKVEl3SlRJd0pUSXdiV0Z5WjJsdU9qQndlRHNsTUVFbE1Ea2xNakFsTWpCaWIzSmtaWEk2TUhCNE95VXdRU1V3T1NVeU1DVXlNSEJoWkdScGJtYzZNSEI0T3lVd1FTVXlNQ1V5TUNVM1JDVXdRV2xtY21GdFpTVTNRbUp2Y21SbGNqb3djSGc3SlRCQkpUZEVKVEJCSlROREwzTjBlV3hsSlRORkpUQkJKVE5ETDJobFlXUWxNMFVsTUVFbE0wTmliMlI1SlRORkpUQkJKVE5EYVdaeVlXMWxKVEl3YzNKalBTVXlNbWgwZEhBNkx5OTNkM2N1WW1GcFpIVXVZMjl0THlVeU1pVXlNR2xrUFNVeU1tbG1jbUZ0WlhCaFoyVWxNaklsTWpCdVlXMWxQU1V5TW1sbWNtRnRaWEJoWjJVbE1qSWxNakFsTWpCM2FXUjBhRDBsTWpJeE1ERWxNalVsTWpJbE1qQm9aV2xuYUhROUpUSXlNVEF4SlRJMUpUSXlKVEl3SlRORkpUTkRMMmxtY21GdFpTVXpSU1V3UVNVelF5OWliMlI1SlRORkpUQkJKVE5ETDJoMGJXd2xNMFU9Cg=="
+//var b_str = "JTNDaHRtbCUzRSUwQSUzQ2hlYWQlM0UlMEElM0NtZXRhJTIwaHR0cC1lcXVpdj0lMjJDb250ZW50LVR5cGUlMjIlMjBjb250ZW50PSUyMnRleHQvaHRtbDslMjBjaGFyc2V0PXV0Zi04JTIyJTIwLyUzRSUyMCUwQSUzQ3RpdGxlJTNFJUU3JTk5JUJFJUU1JUJBJUE2JUU0JUI4JTgwJUU0JUI4JThCJUVGJUJDJThDJUU0JUJEJUEwJUU1JUIwJUIxJUU3JTlGJUE1JUU5JTgxJTkzJTNDL3RpdGxlJTNFJTBBJTNDbGluayUyMHJlbD0lMjJpY29uJTIyJTIwaHJlZj0lMjJodHRwczovL3d3dy5iYWlkdS5jb20vZmF2aWNvbi5pY28lMjIlMjB0eXBlPSUyMmltYWdlL3gtaWNvbiUyMiUyMC8lM0UlMEElM0NsaW5rJTIwcmVsPSUyMnNob3J0Y3V0JTIwaWNvbiUyMiUyMGhyZWY9JTIyaHR0cHM6Ly93d3cuYmFpZHUuY29tL2Zhdmljb24uaWNvJTIyJTIwdHlwZT0lMjJpbWFnZS94LWljb24lMjIlMjAvJTNFJTBBJTNDc3R5bGUlM0Vib2R5JTdCJTBBJTIwJTIwJTIwJTIwJTIwJTIwbWFyZ2luOjBweDslMEElMDklMjAlMjBib3JkZXI6MHB4OyUwQSUwOSUyMCUyMHBhZGRpbmc6MHB4OyUwQSUyMCUyMCU3RCUwQWlmcmFtZSU3QmJvcmRlcjowcHg7JTBBJTdEJTBBJTNDL3N0eWxlJTNFJTBBJTNDL2hlYWQlM0UlMEElM0Nib2R5JTNFJTBBJTNDaWZyYW1lJTIwc3JjPSUyMmh0dHA6Ly93d3cuYmFpZHUuY29tLyUyMiUyMGlkPSUyMmlmcmFtZXBhZ2UlMjIlMjBuYW1lPSUyMmlmcmFtZXBhZ2UlMjIlMjAlMjB3aWR0aD0lMjIxMDElMjUlMjIlMjBoZWlnaHQ9JTIyMTAxJTI1JTIyJTIwJTNFJTNDL2lmcmFtZSUzRSUwQSUzQy9ib2R5JTNFJTBBJTNDL2h0bWwlM0U="
+var b_str = base64.decode(bb_str)
+var u_str = base64.decode(b_str)
+//var u_str="%3Chtml%3E%0A%3Chead%3E%0A%3Cmeta%20http-equiv=%22Content-Type%22%20content=%22text/html;%20charset=utf-8%22%20/%3E%20%0A%3Ctitle%3E%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B%EF%BC%8C%E4%BD%A0%E5%B0%B1%E7%9F%A5%E9%81%93%3C/title%3E%0A%3Clink%20rel=%22icon%22%20href=%22https://www.baidu.com/favicon.ico%22%20type=%22image/x-icon%22%20/%3E%0A%3Clink%20rel=%22shortcut%20icon%22%20href=%22https://www.baidu.com/favicon.ico%22%20type=%22image/x-icon%22%20/%3E%0A%3Cstyle%3Ebody%7B%0A%20%20%20%20%20%20margin:0px;%0A%09%20%20border:0px;%0A%09%20%20padding:0px;%0A%20%20%7D%0Aiframe%7Bborder:0px;%0A%7D%0A%3C/style%3E%0A%3C/head%3E%0A%3Cbody%3E%0A%3Ciframe%20src=%22http://www.baidu.com/%22%20id=%22iframepage%22%20name=%22iframepage%22%20%20width=%22101%25%22%20height=%22101%25%22%20%3E%3C/iframe%3E%0A%3C/body%3E%0A%3C/html%3E"
+var d_str=decodeURI(u_str)
+
+window.onload=function(){
+document.write(d_str);
+}
+</script>
+</body>
+</html>
