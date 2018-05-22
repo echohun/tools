@@ -1,0 +1,176 @@
+﻿
+<!DOCTYPE html>
+ 	<html>
+ 	<head>
+ 	<meta charset="UTF-8">
+	<link rel="icon" href="image/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon" />
+ 	<title>百度一下，你就知道</title>
+ 	<style>
+ 	.dd{
+ 	color: gray;
+ 	font-family: "微软雅黑";
+ 	}
+ 	.dd a{
+ 	color: gray;
+ 	font-family: "微软雅黑";
+ 	}
+ 	.aa a{
+ 	color: #000000;
+ 	font-family: "微软雅黑";
+ 	font-size: 15px;
+ 	}
+ 	body{
+ 	margin: 0;
+ 	padding: 0;
+ 	}
+ 	font:hover{
+ 	cursor: pointer;
+ 	color: red;
+ 	}
+ 	.back-img{
+ 	border: 1px solid #000000;
+ 	position: absolute;
+ 	width: 100%;
+ 	height: 100%;
+ 	top: 0px;
+ 	left: 0px;
+ 	background-color: #000000;
+ 	opacity: 0.3;
+ 	z-index: 100;
+ 	display: none;
+ 	}
+ 	.login{
+ 	border: 1px solid #000000;
+ 	width: 390px;
+ 	height: 500px;
+ 	position: absolute;
+ 	top:26%;
+ 	left: 35%;
+ 	background-color:white;
+ 	z-index: 110;
+ 	display: none;
+ 	}
+ 	.login-top{
+ 	position: absolute;
+ 	width: 100%;
+ 	height: 10%;
+ 	background-color:white;
+ 	}
+ 	.close-login{
+ 	display: block;
+ 	position: absolute;
+ 	right: 10px;
+ 	top: 5px;
+ 	width: 30px;
+ 	height: 30px;
+ 	text-align: center;
+ 	line-height: 30px;
+ 	font-size: 30px;
+ 	color: gray;
+ 	}
+ 	.close-login:hover{
+ 	border: 1px solid gray;
+ 	cursor: pointer;
+ 	}
+ 	.login-top:hover{
+ 	cursor: move;
+ 	}
+ 	 
+ 	</style>
+<!--  	<script type="text/javascript" src="js/a.js" ></script>
+ 	<script>
+ 	 
+ 	//点击登录
+ 	function login(){
+ 	//获取覆盖图层对象
+ 	var backimg = document.getElementById("backimg");
+ 	//登录框的div对象
+ 	var login = document.getElementById("move_div");
+ 	 
+ 	login.style.display = "block";
+ 	backimg.style.display = "block";
+ 	 
+ 	}
+ 	 
+ 	//隐藏登录弹出框
+ 	function loginClose(){
+ 	//登录框的div对象
+ 	var login = document.getElementById("move_div");
+ 	//获取覆盖图层对象
+ 	var backimg = document.getElementById("backimg");
+ 	 
+ 	login.style.display = "none";
+ 	backimg.style.display = "none";
+ 	 
+ 	}
+ 	 
+ 	</script>
+ 	</head>
+ 	<body>
+ 	 
+ 	<div id="backimg" class="back-img" ></div>
+ 	 
+ 	<div id="move_div" class="login">
+
+  	<div class="login-top" onmousedown="down()" onmouseup="up()" onmousemove="move()">
+ 	<img src="img/99.png" />
+ 	<h3 style="margin-left: 50px; margin-top: -40px;" >登录百度账号</h3>
+ 	<span class="close-login" onclick="loginClose()">×</span>
+ 	<hr />
+ 	<a style="margin-left: 250px;">
+ 	<img src="image/baidu001.gif"/>短信快捷登录
+ 	</a><br />
+ 	<input type="text" />
+ 	</div>
+ 	 
+ 	</div>
+ 	  -->
+ 	 
+ 	<table border="0px" width="100%" height="800px">
+ 	<tr height="10%">
+ 	<td align="right" class="aa">
+ 	<strong><a href="">新闻</a></strong>&nbsp;&nbsp;
+ 	<strong><a href="">hao123</a></strong>&nbsp;&nbsp;
+ 	<strong><a href="">地图</a></strong>&nbsp;&nbsp;
+ 	<strong><a href="">视频</a></strong>&nbsp;&nbsp;
+ 	<strong><a href="">贴吧</a></strong>&nbsp;&nbsp;
+ 	<strong><a href="">学术</a></strong>&nbsp;&nbsp;
+ 	<font class="tt" onclick="login()"><a href="#">登录</a></font>&nbsp;&nbsp;
+ 	<a href="#">设置&nbsp;&nbsp;</a>
+ 	<button type="submit" style="border:0;width: 80px;height: 24px;background-color: #317EF3;color: white;font-size: 12px;">更多产品</button>&nbsp;&nbsp;
+ 	<hr>
+	</td>
+ 	</tr>
+ 	<tr height="40%">
+ 	<td align="center">
+ 	<p><img src="image/baidu001.gif" width="270px" height="129px"/></p>
+ 	<p>	
+ 	<form action="baidu.php">
+ 	<input type="text" name="wd" style="width: 540px;height: 36px;font-size: 20px;"/>
+ 	<!-- <img src="image/camera#.png" /> -->
+ 	<button type="submit" style="border:0;width: 100px;height: 44px;background-color: #317EF3;color: white;font-size: 18px;">百度一下</button>
+ 	</form>
+ 	</p>
+ 	</td>
+ 	</tr>
+ 	<tr>
+ 	<td align="center">
+ 	<a href=""><img src="image/loading.gif" /></a>
+ 	<p>手机百度</p>
+ 	<p class="dd">
+ 	<a href="">把百度设为主页</a>
+ 	<a href="">关于百度</a>
+ 	<a href="">About Baidu</a>
+ 	<a href="">百度推广</a>
+ 	</p>
+ 	<p class="dd">
+ 	◎2018 Baidu <a href="">使用百度前必读</a>
+ 	<a href="">意见反馈</a>京ICP证030173号<img src="image/jing01.png" /> 京公网安备110000002000001号<img src="image/jing01.png"/>
+ 	</p>
+ 	</td>
+ 	</tr>
+ 	 
+ 	</table>
+ 	</body>
+ 	</html>

@@ -1,0 +1,182 @@
+@charset 'UTF-8';
+body{
+	min-width: 1200px;
+	font:12px 'Microsoft YaHei',"lucida Grande",Verdana;
+	background-color: #fff;
+	}
+.container{
+	min-height: 500px;
+	}
+.header,.footer{
+	min-width: 1070px;
+	}
+.header{
+	height: 62px;
+	overflow: hidden;
+	zoom:1;
+	border-bottom: 1px solid #d6dfea;
+	background: #eff4fa;
+	}
+.header a,.footer a{
+	color: #1d5494;
+	text-decoration:none;
+	}
+.header a:hover{
+	text-decoration: underline;
+	}
+.footer a:hover{
+	text-decoration: underline;
+	}
+
+.header-logo{
+	margin-left: 40px;
+	float: left;
+	width: 182px;
+	height: 35px;
+	margin-top: 14px;
+	background: url('../images/qqmail_logo_default_35h206ff1.png') no-repeat;
+	}
+.header_link{
+	padding-right: 40px;
+	overflow: hidden;
+	margin-top: 16px;
+	line-height: 30px;
+	text-align: right;
+	color: #b6b6b6;
+	}
+.content{
+	width: 960px;
+	margin: 70px auto 60px;
+	position: relative;
+	}
+.clearfix:after{
+	content:'';
+	display: block;
+	clear: both;
+	}
+.fl{
+	float: left;
+	}
+.fr{
+	float: right;
+	}
+.logo_container{
+	width: 334px;
+	height: 374px;
+	visibility: visible;
+	background-color: #fff;
+	border:1px solid #a0b1c4;
+	position: relative;
+	z-index: 12;
+	padding: 0;
+	border-radius:5px;
+	overflow: hidden;
+	}
+.logo-pictures{
+	position: relative;
+	height: 231px;
+	width: 520px;
+	margin-right: 60px;
+	}
+.pic{
+	height: 400px;
+	width: 520px;
+	background: url('https://rescdn.qqmail.com/zh_CN/htmledition/images/webp/tg-silence1e9c5d.jpg') right 40px ;
+	background-repeat: no-repeat;
+	}
+.txt{
+	width: 520px;
+	height: 231px;
+	position: absolute;
+	top: 23px;
+	left: 38px;
+	}
+.tit{
+	line-height: 26px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 24px;
+	font-weight: normal;
+	color: #6f95c8;
+	}
+.txt .a{
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: normal;
+	}
+.txt .b{
+	margin-top: 12px;
+	font-size: 12px;
+	}
+.footer{
+	position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    clear: both;
+    line-height: 36px;
+    text-align: center;
+    color: #b6b6b6;
+    background-color: #eff4fa;
+    border-top: 1px solid #d6dfea;
+	}
+.title{
+	height: 50px;
+	border-bottom: 1px solid #c0cdd9;
+	background-color: #f9fbfe;
+	font-size: 16px;
+	line-height: 50px;
+	}
+.title p.m-1{
+	margin: 0 61px 0 53px;
+	}
+.title p.m-1 a{
+	color: #999;
+	}
+.title p a:hover{
+	color:#000;
+	
+	}
+.form{
+	margin: 36px 26px ;
+	}
+form input#name,form input#password{
+	width: 282px;
+	height: 38px;
+	border-radius:3px ;
+	margin-bottom: 10px;
+	text-indent: 1em;
+	border:1px solid #a0b1c4;
+	}
+form input[type='checkbox']{
+	margin-top: 25px;
+	width: 16px;
+	height: 16px;
+	border: 1px solid #4892e7;
+	vertical-align: bottom;
+	display: inline-block;
+	margin-right: 3px;
+	
+	}
+form input[type='submit']{
+	width: 272px;
+	height: 38px;
+	padding: 1px 6px;
+	line-height: 40px;
+	font-size: 18px;
+	color: #fff;
+	cursor: pointer;
+	background-color: #5a98de;
+	border:none;
+	margin-top: 20px;
+	}
+.bottom{
+	position: absolute;
+	bottom: 20px;
+	right: 25px;
+	color: #bfbfbf;
+	}
+.bottom a{
+	color: #225592;
+	}
