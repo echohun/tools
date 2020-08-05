@@ -276,6 +276,8 @@ wmic
 
 wmiexec.vbs
 
+python impacket wmiexec.py
+
 psexec
 
 远程桌面
