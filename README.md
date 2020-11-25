@@ -102,6 +102,8 @@ xray
 
 ### 爆破
 
+常见设备口令速查 http://next.uuzdaisuki.com/2020/11/09/%E5%B8%B8%E8%A7%81web%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E5%8F%A3%E4%BB%A4%E6%80%BB%E7%BB%93/
+
 hydra
 ```
 hydra -V -l fakeroot -P top100.txt 172.18.2.177 ssh
