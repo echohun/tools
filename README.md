@@ -12,6 +12,10 @@
 
 ## 其他工具渗透测试速查清单
 
+## 前言
+
+本文是渗透测试各阶段工具和快速用法速查笔记，将会持续更新。
+
 ### 站点信息收集
 ```
 Google
@@ -134,6 +138,10 @@ weblogicScanner （weblogic历史漏洞扫描利用） https://github.com/0xn0ne
 
 exphub （常见web框架cve利用） https://github.com/zhzyker/exphub
 
+cve，cms，中间件，OA系统漏洞exp合集
+https://github.com/mai-lang-chai/Middleware-Vulnerability-detection
+
+
 ### webshell
 
 菜刀
@@ -141,6 +149,8 @@ exphub （常见web框架cve利用） https://github.com/zhzyker/exphub
 蚁剑
 
 冰蝎
+
+哥斯拉
 
 cobalt strike
 
@@ -178,6 +188,8 @@ windows/linux exploit suggester
 
 
 ### 本地口令获取和破解
+
+hash-identifier 判断哈希类型
 
 mimikatz
 
@@ -288,6 +300,8 @@ Cain
 
 Arpspoof
 
+ettercap
+
 ### 远控
 
 pupy类远控
@@ -303,6 +317,8 @@ radmin
 DroidJack
 
 Dendroid
+
+SpyNote
 
 ### 典型windows-rce
 
@@ -324,3 +340,5 @@ everything 文件搜索工具
 navicat 数据库连接工具，支持超多种类数据库，支持导出数据，甚至提供拖库的tunnel.php等
 
 悬剑3.0 超齐全windows工具库系统
+
+小米范系列工具 可视化，操作简便 https://www.cnblogs.com/SEC-fsq/tag/%E6%88%91%E7%9A%84%E5%B0%8F%E5%B7%A5%E5%85%B7/
