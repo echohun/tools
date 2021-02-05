@@ -54,7 +54,7 @@ def check_url(url):
 
 
 def read_url():
-    f = open("urls3.txt", 'r')
+    f = open("urls.txt", 'r')
     for line in f.readlines():
         target = line.strip()
         #print(target)
