@@ -12,5 +12,7 @@ Apache Druid 命令执行漏洞 cve-2021-25646 druid_rce_poc.py
 
 致远oa文件上传漏洞 CNTA-2021-0002 seeyon_upload_poc.py
 
+VMware vRealize ssrf漏洞 CVE-2021-21975 vmware-vRealize-ssrf-poc.py
+ 
 ## ps
 后续会慢慢增加
