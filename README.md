@@ -9,7 +9,6 @@
 ## ++++++++++分割线+++++++++++
 
 
-
 ## 其他工具渗透测试速查清单
 
 ## 前言
@@ -30,8 +29,24 @@ robtex
 
 ### 快速探测存活主机
 
-nmap
+ping
+```
+#!/bin/bash
+for i in {1..255};
+do 
+ host=192.168.121.$i
+ ping -c2  $host  >/dev/null
+ if [ $? = 0 ]
+ then    
+ echo "192.168.121.$i is connected"
+ else
+ echo "192.168.121.$i is not connected"
+ fi
+done
+```
 
+
+nmap
 ```
 nmap 172.18.2.1/24 -sS -Pn -n --open --min-hostgroup 4 --min-parallelism 1024 --host-timeout 30 -T4 -v -oG result.txt
 nmap 172.18.2.1/24 -sS -Pn -n --open --min-hostgroup 4 --min-parallelism 1024 --host-timeout 30 -T4 -v -oX result.xml
@@ -75,10 +90,19 @@ EmailSniper
 ### 子域名收集
 
 SubDominscanner
+OneForAll
+https://www.dnsgrep.cn
+https://securitytrails.com
+
+可参考
+http://uuzdaisuki.com/2021/05/31/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E6%80%BB%E7%BB%93/
+
 
 ### 指纹收集
 
 whatweb -v http://baidu.com
+
+云悉
 
 ### web目录扫描
 
@@ -92,17 +116,21 @@ webpathbrute
 
 ### 漏洞扫描 
 
-wvs
+goby
+
+awvs
 
 burpsuite
 
-nessus（强烈推荐）
+nessus
 
 xray
 
 ### 爆破
 
-常见设备口令速查 http://next.uuzdaisuki.com/2020/11/09/%E5%B8%B8%E8%A7%81web%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E5%8F%A3%E4%BB%A4%E6%80%BB%E7%BB%93/
+常见设备口令速查 http://uuzdaisuki.com/2020/11/09/%E5%B8%B8%E8%A7%81web%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E5%8F%A3%E4%BB%A4%E6%80%BB%E7%BB%93/
+
+常见未授权访问利用总结 http://uuzdaisuki.com/2021/01/10/%E5%B8%B8%E8%A7%81%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93/
 
 hydra
 ```
@@ -146,6 +174,14 @@ https://github.com/mai-lang-chai/Middleware-Vulnerability-detection
 
 ### webshell
 
+免杀webshell三篇总结请见：
+http://uuzdaisuki.com/2021/05/15/webshell%E5%85%8D%E6%9D%80%E7%A0%94%E7%A9%B6asp%E7%AF%87/
+http://uuzdaisuki.com/2021/05/15/webshell%E5%85%8D%E6%9D%80%E7%A0%94%E7%A9%B6jsp%E7%AF%87/
+http://uuzdaisuki.com/2021/05/15/webshell%E5%85%8D%E6%9D%80%E7%A0%94%E7%A9%B6php%E7%AF%87/
+
+由命令执行快速寻找webshell路径并写入请见：
+http://uuzdaisuki.com/2021/05/20/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%86%99webshell%E6%80%BB%E7%BB%93/
+
 菜刀
 
 蚁剑
@@ -153,8 +189,6 @@ https://github.com/mai-lang-chai/Middleware-Vulnerability-detection
 冰蝎
 
 哥斯拉
-
-cobalt strike
 
 普通反弹shell
 ```
@@ -177,31 +211,56 @@ nc
 ### 提权
 
 sudo提权  
-http://next.uuzdaisuki.com/2020/02/12/linux%E5%B8%B8%E8%A7%81%E6%8F%90%E6%9D%83%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93/
+http://uuzdaisuki.com/2020/02/12/linux%E5%B8%B8%E8%A7%81%E6%8F%90%E6%9D%83%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93/
+
+本地内核提权速查流程
+http://uuzdaisuki.com/2021/04/12/windows%E6%8F%90%E6%9D%83%E9%80%9F%E6%9F%A5%E6%B5%81%E7%A8%8B/
+
+提权扫描工具一览
+http://uuzdaisuki.com/2021/06/09/%E6%8F%90%E6%9D%83%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7%E4%B8%80%E8%A7%88/
 
 各类exp  
 典型通杀:脏牛CVE-2016-5195
 
 metasploit
 
-本地漏洞扫描工具
+cobalt strike
+
+
+本地漏洞扫描工具：
 
 windows/linux exploit suggester
 
+powerup
+
+accesschk
+
+Sherlock
 
 ### 本地口令获取和破解
 
+哈希提取总结：
+http://uuzdaisuki.com/2021/04/22/windows%E5%93%88%E5%B8%8C%E6%8F%90%E5%8F%96%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93/
+
 hash-identifier 判断哈希类型
+
+getpass
+
+pwdump8
+
+Quarks-pwdump
 
 mimikatz
 
 Mimipenguin
 
+Get-PassHashes.ps1
+
 LaZagne  
-http://next.uuzdaisuki.com/2019/12/07/%E4%B8%A4%E6%AC%BE%E5%AF%86%E7%A0%81%E6%8F%90%E5%8F%96%E5%B7%A5%E5%85%B7%E7%9A%84%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/
+http://uuzdaisuki.com/2019/12/07/%E4%B8%A4%E6%AC%BE%E5%AF%86%E7%A0%81%E6%8F%90%E5%8F%96%E5%B7%A5%E5%85%B7%E7%9A%84%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/
 
 hashcat+口令字典  
-http://next.uuzdaisuki.com/2020/07/28/%E5%93%88%E5%B8%8C%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4%E5%B7%A5%E5%85%B7hashcat/
+http://uuzdaisuki.com/2020/07/28/%E5%93%88%E5%B8%8C%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4%E5%B7%A5%E5%85%B7hashcat/
 
 ```
 --hash-type 0 --attack-mode 0
@@ -220,6 +279,8 @@ http://next.uuzdaisuki.com/2020/07/28/%E5%93%88%E5%B8%8C%E5%AF%86%E7%A0%81%E7%88
 linuxprivchecker
 
 LinEnum
+
+
 
 ### 后门
 
@@ -240,13 +301,26 @@ run
 https://www.cnblogs.com/backlion/p/9484949.html
 ```
 
+普通shell升级meterpreter
+http://uuzdaisuki.com/2021/03/12/msf%E6%99%AE%E9%80%9Ashell%E5%8D%87%E7%BA%A7%E6%88%90meterpreter/
+
+cs与msf互相转换
+http://uuzdaisuki.com/2021/05/21/msf%E4%B8%8Ecs%E4%BA%92%E7%9B%B8%E8%BD%AC%E6%8D%A2/
+
 python直连反弹shell  
-http://next.uuzdaisuki.com/2018/06/17/%E5%9F%BA%E4%BA%8Epython%E7%9A%84%E7%9B%B4%E8%BF%9Eshell%E5%92%8C%E5%8F%8D%E5%B0%84shell/
+http://uuzdaisuki.com/2018/06/17/%E5%9F%BA%E4%BA%8Epython%E7%9A%84%E7%9B%B4%E8%BF%9Eshell%E5%92%8C%E5%8F%8D%E5%B0%84shell/
 其他语言直连反弹shell  
 
+linux后门手法总结
+http://uuzdaisuki.com/2021/01/05/linux%E5%90%8E%E9%97%A8%E6%89%8B%E6%B3%95%E6%80%BB%E7%BB%93/
 
-windows常见奇淫技巧后门手法  
-http://next.uuzdaisuki.com/2018/06/18/windows%E5%B8%B8%E7%94%A8%E5%90%8E%E9%97%A8%E6%8A%80%E6%9C%AF%E5%8F%8A%E9%98%B2%E8%8C%83/
+windows常见后门手法（这篇几年前写的，后续有时间会出一篇新的较全面的奇淫技巧）  
+http://uuzdaisuki.com/2018/06/18/windows%E5%B8%B8%E7%94%A8%E5%90%8E%E9%97%A8%E6%8A%80%E6%9C%AF%E5%8F%8A%E9%98%B2%E8%8C%83/
+
+### 痕迹清理
+
+痕迹清理
+http://uuzdaisuki.com/2020/11/11/%E5%90%8E%E6%B8%97%E9%80%8F%E9%98%B6%E6%AE%B5%E6%B8%85%E7%90%86%E7%97%95%E8%BF%B9%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93/
 
 ### 内网横向渗透
 
@@ -276,6 +350,12 @@ FRP
 
 N2N
 
+票据传递：
+http://uuzdaisuki.com/2021/04/21/%E7%A5%A8%E6%8D%AE%E4%BC%A0%E9%80%92%E6%94%BB%E5%87%BB/
+
+内网信息收集：
+http://uuzdaisuki.com/2021/05/19/%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E6%80%BB%E7%BB%93/
+
 ### 内网命令执行和文件访问
 
 at
@@ -295,6 +375,12 @@ python impacket wmiexec.py
 psexec
 
 远程桌面
+
+域渗透ipc命令执行总结
+http://uuzdaisuki.com/2021/04/29/%E5%9F%9F%E6%B8%97%E9%80%8F%E4%B8%AD%E5%88%A9%E7%94%A8ipc%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%80%BB%E7%BB%93/
+
+数据回传方式总结：
+http://uuzdaisuki.com/2021/01/04/%E6%95%B0%E6%8D%AE%E5%9B%9E%E4%BC%A0%E9%80%9A%E9%81%93%E6%80%BB%E7%BB%93/
 
 ### arp欺骗
 
@@ -321,6 +407,9 @@ DroidJack
 Dendroid
 
 SpyNote
+
+远控免杀工具总结
+http://uuzdaisuki.com/2021/05/25/%E5%87%A0%E6%AC%BE%E8%BF%9C%E6%8E%A7%E5%85%8D%E6%9D%80%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/
 
 ### 典型windows-rce
 
