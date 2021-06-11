@@ -176,8 +176,8 @@ https://github.com/mai-lang-chai/Middleware-Vulnerability-detection
 
 免杀webshell三篇总结请见：
 http://uuzdaisuki.com/2021/05/15/webshell%E5%85%8D%E6%9D%80%E7%A0%94%E7%A9%B6asp%E7%AF%87/
-http://uuzdaisuki.com/2021/05/15/webshell%E5%85%8D%E6%9D%80%E7%A0%94%E7%A9%B6jsp%E7%AF%87/
-http://uuzdaisuki.com/2021/05/15/webshell%E5%85%8D%E6%9D%80%E7%A0%94%E7%A9%B6php%E7%AF%87/
+http://uuzdaisuki.com/2021/05/12/webshell%E5%85%8D%E6%9D%80%E7%A0%94%E7%A9%B6jsp%E7%AF%87/
+http://uuzdaisuki.com/2021/05/11/webshell%E5%85%8D%E6%9D%80%E7%A0%94%E7%A9%B6php%E7%AF%87/
 
 由命令执行快速寻找webshell路径并写入请见：
 http://uuzdaisuki.com/2021/05/20/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%86%99webshell%E6%80%BB%E7%BB%93/
